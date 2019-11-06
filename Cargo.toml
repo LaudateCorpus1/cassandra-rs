@@ -18,7 +18,7 @@ travis-ci = { repository = "Metaswitch/cassandra-rs" }
 [dependencies]
 clippy = {version = "0.0", optional = true}
 slog = "2"
-cassandra-cpp-sys = "0.12"
+cassandra-cpp-sys = { git = "https://github.com/discordapp/cassandra-sys-rs", rev= "48c99b661e541483a8327ea4f4cb4752f4314ce8"}
 decimal = "1"
 time = "0.1"
 uuid = "0.5"
