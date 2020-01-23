@@ -9,11 +9,16 @@ version number is tracked in the file `VERSION`.
 ## [Unreleased]
 ### Added
 ### Changed
+### Fixed
+
+## [0.14.1] - 2019-11-07
+### Changed
 - Add code example for SSL.
 - Updated error-chain to 0.12.1 to avoid `Error` deprecation warnings.
 
 ### Fixed
 - Provide missing doc comment, fix unused doc comment warnings.
+- Fix type signature on `set_load_balance_dc_aware` so it can be used.
 
 ## [0.14.0] - 2019-01-22
 ### Added
