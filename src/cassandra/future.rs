@@ -11,8 +11,10 @@ use crate::cassandra_sys::cass_future_get_prepared;
 use crate::cassandra_sys::cass_future_get_result;
 use crate::cassandra_sys::cass_future_ready;
 use crate::cassandra_sys::cass_future_set_callback;
+use crate::cassandra_sys::cass_future_coordinator;
 use crate::cassandra_sys::CassError_;
 use crate::cassandra_sys::CassFuture as _Future;
+use crate::cassandra_sys::CassNode as _Node;
 use crate::cassandra_sys::CASS_OK;
 use crate::cassandra_sys::{cass_false, cass_true};
 use crate::{cassandra::consistency::Consistency, Session};
@@ -84,6 +86,10 @@ impl<T> CassFuture<T> {
         self.session.take().expect(
             "invariant: could not take session from CassFuture that already has had session taken.",
         )
+    }
+
+    fn coordinator(self) -> *const _Node {
+        unsafe { cass_future_coordinator(self.inner) }
     }
 }
 
