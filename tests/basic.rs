@@ -240,11 +240,9 @@ async fn test_basic_round_trip() -> Result<()> {
 
     assert!(input == output);
 
-    // We are forced to use a null terminated CString to workaround a bug in the
-    // cpp driver. Therefore, null char is not allowed.
     let input = {
         let mut input = input;
-        input.txt = "some unicode text 😊".to_string();
+        input.txt = "some\0 unicode text 😊".to_string();
         input
     };
 
